@@ -15,11 +15,6 @@
       if (!node.discovered) {
         node.discovered = true;
         visited.push(node);
-        
-        // getAdjacent(node.name, vertices, edges).forEach(node => {
-        //   visited.push(node);
-        //   stack.push(node);
-        // })
         const adjacent = getAdjacent(node.name, vertices, edges);
         visited.push(...adjacent);
         stack.push(...adjacent);
@@ -27,20 +22,6 @@
     }
     return visited;
   }
-
-// function getAdjacent(node, vertices, edges) {
-//   const adjacent = [];
-//   edges.forEach(edge => {
-//     const found = edge.findIndex(name => name === node);
-//     if (found !== -1) {
-//       const index = found === 0 ? 1 : 0;
-//       const adjacentNode = vertices.find(vertex => vertex.name === edge[index]);
-//       adjacent.unshift(adjacentNode);
-//     }
-//   });
-
-//   return adjacent;
-// }
 
 // function depthFirstSearch(rootNode, vertices, edges){
 // 		let stack = []
@@ -61,6 +42,22 @@
 // 		}
 // 		return visited;
 // }
+
+// function getAdjacent(node, vertices, edges) {
+//   const adjacent = [];
+//   edges.forEach(edge => {
+//     const found = edge.findIndex(name => name === node);
+//     if (found !== -1) {
+//       const index = found === 0 ? 1 : 0;
+//       const adjacentNode = vertices.find(vertex => vertex.name === edge[index]);
+//       adjacent.unshift(adjacentNode);
+//     }
+//   });
+
+//   return adjacent;
+// }
+
+
 
 function getAdjacent(nodeName,  vertices, edges){
   return edges.filter(function(edge){

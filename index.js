@@ -51,9 +51,8 @@ function getAdjacent(node, vertices, edges) {
       const index = found === 0 ? 1 : 0;
       const adjacentNode = vertices.find(vertex => vertex.name === edge[index]);
       if (!adjacentNode.discovered) {
-        
+        adjacent.push(adjacentNode);
       }
-      adjacent.push(adjacentNode);
     }
   });
 

@@ -15,7 +15,11 @@ function depthFirstSearch(rootNode, vertices, edges) {
     if (!node.discovered) {
       node.discovered = true;
       visited.push(node);
-      stack.push(...getAdjacent(node.name, vertices, edges));
+      getAdjacent(node.name, vertices, edges).forEach(node => {
+        visited.push(node);
+        stack.push(node);
+      })
+      // stack.push(...getAdjacent(node.name, vertices, edges));
     }
   }
   return visited;

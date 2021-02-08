@@ -22,7 +22,7 @@ function getAdjacent(node, vertices, edges) {
   edges.forEach(edge => {
     const firstIndex = edge.findIndex(name => name === node);
     if (firstIndex !== -1) {
-      const secondIndex = found === 0 ? 1 : 0;
+      const secondIndex = firstIndex === 0 ? 1 : 0;
       const adjacentNode = vertices.find(vertex => vertex.name === edge[secondIndex]);
       if (!adjacentNode.discovered) {
         adjacent.push(adjacentNode);

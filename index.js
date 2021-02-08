@@ -7,7 +7,7 @@
 // add node/s to top of stack
 // explore first and add any adjacent unvisted to top of
   function depthFirstSearch(rootNode, vertices, edges) {
-    const stack = [rootNode]; // LIFO
+    const stack = [rootNode];
     const visited = [];
     
     while (stack.length > 0) {
@@ -15,11 +15,11 @@
       if (!node.discovered) {
         node.discovered = true;
         visited.push(node);
-        getAdjacent(node.name, vertices, edges).forEach(node => {
-          visited.push(node);
-          stack.push(node);
-        })
-        // stack.push(...getAdjacent(node.name, vertices, edges));
+        
+        // getAdjacent(node.name, vertices, edges).forEach(node => {
+        //   visited.push(node);
+        //   stack.push(node);
+        // })
       }
     }
     return visited;

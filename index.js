@@ -2,6 +2,8 @@
 // Array<{ name: xy; discovered: null }>
 // edges [xy, xy]
 
+// take a node
+// explore - look at adjacent 
 function depthFirstSearch(rootNode, vertices, edges) {
   const stack = [rootNode]; // LIFO
   const visited = [];

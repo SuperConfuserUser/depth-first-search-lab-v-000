@@ -8,13 +8,12 @@
 // explore first and add any adjacent unvisted to top of
   function depthFirstSearch(rootNode, vertices, edges) {
     const stack = [rootNode];
-    const visited = [];
+    const visited = [rootNode];
     
     while (stack.length > 0) {
       const node = stack.pop();
       if (!node.discovered) {
         node.discovered = true;
-        visited.push(node);
         const adjacent = getAdjacent(node.name, vertices, edges);
         visited.push(...adjacent);
         stack.push(...adjacent);

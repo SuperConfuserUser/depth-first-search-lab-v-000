@@ -20,6 +20,9 @@
         //   visited.push(node);
         //   stack.push(node);
         // })
+        const adjacent = getAdjacent(node.name, vertices, edges);
+        visited.push(...adjacent);
+        stack.push(...adjacent);
       }
     }
     return visited;

@@ -6,24 +6,24 @@
 // explore - look at adjacent unvisited nodes
 // add node/s to top of stack
 // explore first and add any adjacent unvisted to top of
-// function depthFirstSearch(rootNode, vertices, edges) {
-//   const stack = [rootNode]; // LIFO
-//   const visited = [];
-  
-//   while (stack.length > 0) {
-//     const node = stack.pop();
-//     if (!node.discovered) {
-//       node.discovered = true;
-//       visited.push(node);
-//       getAdjacent(node.name, vertices, edges).forEach(node => {
-//         visited.push(node);
-//         stack.push(node);
-//       })
-//       // stack.push(...getAdjacent(node.name, vertices, edges));
-//     }
-//   }
-//   return visited;
-// }
+  function depthFirstSearch(rootNode, vertices, edges) {
+    const stack = [rootNode]; // LIFO
+    const visited = [];
+    
+    while (stack.length > 0) {
+      const node = stack.pop();
+      if (!node.discovered) {
+        node.discovered = true;
+        visited.push(node);
+        getAdjacent(node.name, vertices, edges).forEach(node => {
+          visited.push(node);
+          stack.push(node);
+        })
+        // stack.push(...getAdjacent(node.name, vertices, edges));
+      }
+    }
+    return visited;
+  }
 
 // function getAdjacent(node, vertices, edges) {
 //   const adjacent = [];
@@ -59,7 +59,7 @@ function depthFirstSearch(rootNode, vertices, edges){
 		return visited;
 }
 
-function findAdjacent(nodeName,  vertices, edges){
+function getAdjacent(nodeName,  vertices, edges){
   return edges.filter(function(edge){
     return edge.includes(nodeName)
   }).map(function(edge){

@@ -3,7 +3,8 @@
 // edges [xy, xy]
 
 // take a node
-// explore - look at adjacent 
+// explore - look at adjacent unvisited nodes
+
 function depthFirstSearch(rootNode, vertices, edges) {
   const stack = [rootNode]; // LIFO
   const visited = [];

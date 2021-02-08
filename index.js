@@ -13,10 +13,11 @@ function depthFirstSearch(rootNode, vertices, edges) {
   
   while (stack.length > 0) {
     const node = stack.pop();
-    if (!node.discovered) {
-      visited.push(node);
-      stack.push(...getAdjacent(node, vertices, edges));
-    }
+    node.discovered = true;
+    
+    const adjacent = getAdjacent(node, vertices, edges);
+    stack.unshift(adjacent);
+
   }
   return visited;
 }
@@ -28,7 +29,7 @@ function getAdjacent(node, vertices, edges) {
     if (found !== -1) {
       const index = found === 0 ? 1 : 0;
       const node = vertices.find(vertex => vertex.name === edge[index]);
-      adjacent.push(node);
+      adjacent.unshift(node);
     }
   });
 
